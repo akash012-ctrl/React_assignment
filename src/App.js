@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import Bookmarks from './components/Bookmarks'; 
+import Home from './components/Home';
 
-function App() {
+import './App.css'
+
+const App = () => {
+  const [bookmarks,setBookmarks]=useState([]);
+
+  console.log(bookmarks);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+        <div className="Home homePage-sections">
+            <Home bookmarks={bookmarks} setBookmarks={setBookmarks}></Home>
+        </div>
+        <div className="Bookmarks homePage-sections">
+            <Bookmarks bookmarks={bookmarks} setBookmarks={setBookmarks}></Bookmarks>
+        </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
